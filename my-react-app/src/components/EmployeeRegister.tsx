@@ -1,25 +1,29 @@
 import { useState } from "react";
 
 function EmployeeRegister() {
-  const [form, setForm] = useState({
-    name: "",
-    lastName: "",
-    company: "",
-    position: "",
-    department: "",
-    email: "",
-    registration: "",
-    salary: "",
-  });
+  const [name, setName] = useState("");
+  const [lastName, setLastName] = useState("");
+  const [company, setCompany] = useState("");
+  const [position, setPosition] = useState("");
+  const [department, setDepartment] = useState("");
+  const [email, setEmail] = useState("");
+  const [registration, setRegistration] = useState("");
+  const [salary, setSalary] = useState("");
+  const [employmentType, setEmploymentType] = useState("");
+  const [Gender, setGender] = useState("");
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setForm((prevForm) => ({ ...prevForm, [name]: value }));
-  };
-
-  const click = () => {
-    console.log(form);
-  };
+  function click() {
+    alert(name);
+    alert(lastName);
+    alert(email);
+    alert(Gender);
+    alert(registration);
+    alert(company);
+    alert(position);
+    alert(department);
+    alert(salary);
+    alert(employmentType);
+  }
 
   return (
     <div className="fflex flex-row items-start gap-x-8 bg-white p-8 rounded-xl shadow-lg max-w-3xl mx-auto mt-10">
@@ -29,8 +33,8 @@ function EmployeeRegister() {
       <input
         name="name"
         className="border-2 border-gray-300 rounded p-2 w-full mb-4 text-gray-700 bg-white"
-        value={form.name}
-        onChange={handleChange}
+        value={name}
+        onChange={(e) => setName(e.target.value)}
         type="text"
         placeholder="Name"
       />
@@ -40,8 +44,8 @@ function EmployeeRegister() {
       <input
         name="lastName"
         className="border-2 border-gray-300 rounded p-2 w-full mb-4 text-gray-700 bg-white"
-        value={form.lastName}
-        onChange={handleChange}
+        value={lastName}
+        onChange={(e) => setLastName(e.target.value)}
         type="text"
         placeholder="Last name"
       />
@@ -51,8 +55,8 @@ function EmployeeRegister() {
       <input
         name="email"
         className="border-2 border-gray-300 rounded p-2 w-full mb-4 text-gray-700 bg-white"
-        value={form.email}
-        onChange={handleChange}
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
         type="email"
         placeholder="E-mail"
       />
@@ -60,11 +64,26 @@ function EmployeeRegister() {
         Gender*
       </label>
       <div className="p-2 flex flex-row justify-center gap-x-4 mb-2">
-        <input type="radio" name="gender" />
+        <input
+          type="radio"
+          name="gender"
+          value={"male"}
+          onChange={(e) => setGender(e.target.value)}
+        />
         Male
-        <input type="radio" name="gender" />
+        <input
+          type="radio"
+          name="gender"
+          value={"Female"}
+          onChange={(e) => setGender(e.target.value)}
+        />
         Female
-        <input type="radio" name="gender" />
+        <input
+          type="radio"
+          name="gender"
+          value={"Other"}
+          onChange={(e) => setGender(e.target.value)}
+        />
         Other
       </div>
       <label
@@ -76,8 +95,8 @@ function EmployeeRegister() {
       <input
         name="registration"
         className="border-2 border-gray-300 rounded p-2 w-full mb-4 text-gray-700 bg-white"
-        value={form.registration}
-        onChange={handleChange}
+        value={registration}
+        onChange={(e) => setRegistration(e.target.value)}
         type="text"
         placeholder="Registration"
       />
@@ -87,8 +106,8 @@ function EmployeeRegister() {
       <input
         name="company"
         className="border-2 border-gray-300 rounded p-2 w-full mb-4 text-gray-700 bg-white"
-        value={form.company}
-        onChange={handleChange}
+        value={company}
+        onChange={(e) => setCompany(e.target.value)}
         type="text"
         placeholder="Company"
       />
@@ -98,8 +117,8 @@ function EmployeeRegister() {
       <input
         name="position"
         className="border-2 border-gray-300 rounded p-2 w-full mb-4 text-gray-700 bg-white"
-        value={form.position}
-        onChange={handleChange}
+        value={position}
+        onChange={(e) => setPosition(e.target.value)}
         type="text"
         placeholder="Position"
       />
@@ -109,8 +128,8 @@ function EmployeeRegister() {
       <input
         name="department"
         className="border-2 border-gray-300 rounded p-2 w-full mb-4 text-gray-700 bg-white"
-        value={form.department}
-        onChange={handleChange}
+        value={department}
+        onChange={(e) => setDepartment(e.target.value)}
         type="text"
         placeholder="Department"
       />
@@ -120,8 +139,8 @@ function EmployeeRegister() {
       <input
         name="salary"
         className="border-2 border-gray-300 rounded p-2 w-full mb-4 text-gray-700 bg-white"
-        value={form.salary}
-        onChange={handleChange}
+        value={salary}
+        onChange={(e) => setSalary(e.target.value)}
         type="number"
         placeholder="Salary"
       />
@@ -133,14 +152,16 @@ function EmployeeRegister() {
         id="employmentType"
         name="employmentType"
         className="border-2 border-gray-300 rounded p-2 w-full mb-4 text-gray-700 bg-white"
+        onChange={(e) => setEmploymentType(e.target.value)}
       >
-        <option value="fullTime">Full-time</option>
-        <option value="partTime">Part-time</option>
-        <option value="temporary">Temporary</option>
-        <option value="contractor">Contractor</option>
-        <option value="intern">Intern</option>
-        <option value="volunteer">Volunteer</option>
-        <option value="freelancer">Freelancer</option>
+        <option value="">Select Type</option>
+        <option value="FullTime">Full-time</option>
+        <option value="PartTime">Part-time</option>
+        <option value="Temporary">Temporary</option>
+        <option value="Contractor">Contractor</option>
+        <option value="Intern">Intern</option>
+        <option value="Volunteer">Volunteer</option>
+        <option value="Freelancer">Freelancer</option>
       </select>
 
       <button
