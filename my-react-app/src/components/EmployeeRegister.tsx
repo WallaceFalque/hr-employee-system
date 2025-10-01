@@ -170,6 +170,11 @@ function EmployeeRegister() {
       >
         Register
       </button>
+      <div>
+        <h1 className="mt-12 center text-3xl font-bold text-blue-700 text-center mb-8">
+          registered workers
+        </h1>
+      </div>
     </div>
   );
 }
